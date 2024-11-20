@@ -1,0 +1,237 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #d8e9ff;
+  margin: 0;
+  padding: 0px;
+}
+
+main {
+  width: 90%;
+  background-color: #97b4db;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 3em 0em;
+  margin: 5%;
+}
+
+h3 {
+  margin: 0;
+}
+
+.barra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 1.5em;
+  background-color: #628ecb;
+}
+
+.barra h2 {
+  margin: 0;
+  flex-grow: 1; /* Permite que el h2 tome todo el espacio disponible */
+  text-align: center; /* Centra el texto en el h2 */
+}
+
+.barra button {
+  background-color: #628ecb;
+  border: none;
+}
+.carrito {
+  font-size: 5vh;
+}
+
+.tabla {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  padding: 1.5em 0em;
+  background-color: white;
+  border-radius: 3em;
+}
+
+.carrito-tabla {
+  width: 95%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+}
+
+.header-tabla {
+  text-align: center;
+  background-color: #628ecb;
+  color: white;
+  padding: 10px 0;
+}
+
+.carrito-tabla th,
+.carrito-tabla td {
+  border-bottom: 2px solid #ccc;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.carrito-tabla th {
+  background-color: #628ecb;
+  color: white;
+}
+
+.total {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.total p {
+  font-size: 1.2em;
+  font-weight: bold;
+  background-color: white;
+  padding: 20px;
+  border-radius: 15em;
+}
+
+.seguir-comprando {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.seguir-comprando:hover {
+  background-color: #218838;
+}
+
+.btn-comprar {
+  margin-left: 10px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-comprar:hover {
+  background-color: #0056b3;
+}
+
+.imagen-producto {
+  background-color: black;
+  max-width: 50px; /* Ajusta según lo que prefieras */
+  height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.icono {
+  font-size: 20px; /* Cambia este valor al tamaño que desees */
+}
+
+.btn-eliminar {
+  background-color: #97b4db;
+  border-radius: 5px;
+  border: none;
+  height: 30px;
+}
+
+.popup {
+  display: none; /* Inicialmente oculto */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+}
+
+.popup-content {
+  background-color: #689FE7;
+  padding: 20px;
+  width: 400px; /* Ancho fijo del pop-up */
+  max-width: 90%; /* Para adaptarse a pantallas pequeñas */
+  border-radius: 8px; /* Bordes redondeados (opcional) */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.pagar button {
+  width: 30%;
+  padding: 10px;
+  background-color: #466AA1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagar button:hover {
+  background-color: #3d5c8b;
+}
+
+
+.popup2 {
+  display: none; /* Inicialmente oculto */
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: auto;
+  padding: 20px;
+  background-color: #446AA2;
+  border: 1px solid #446AA2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-radius: 15px;
+}
+
+.overlay {
+  display: none; /* Inicialmente oculto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+#acceptButton {
+  background-color: #D8E9FF;
+  width: 30%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

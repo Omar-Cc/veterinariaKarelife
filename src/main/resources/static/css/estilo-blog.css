@@ -1,0 +1,293 @@
+.contenido {
+  display: flex;
+  flex-direction: column; /* Apila los banners verticalmente */
+  width: 100%;
+}
+
+img.fullWidthHeight {
+  width: 100%;
+  height: 100%;
+}
+.textito {
+  width: 60%;
+  padding: 0.5em;
+}
+
+.img {
+  width: 40%;
+}
+
+.banner1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center; /* Centra los elementos en el eje transversal */
+  position: relative; /* Necesario para el overlay */
+}
+
+.fondo {
+  width: 100%;
+  height: auto;
+  z-index: -1; /* Coloca la imagen detrás del overlay */
+}
+
+.fondo img {
+  position: absolute;
+  object-fit: cover; /* Asegura que la imagen cubra todo el área */
+  width: 100%;
+}
+
+.overlay {
+  position: relative;
+  width: 60%;
+  height: 80%;
+  margin: 5%;
+  padding: 40px 30px;
+  background-color: rgba(160, 176, 228, 0.5);
+  text-align: center;
+  font-family: Century Gothic;
+  z-index: 1;
+}
+
+.overlay h2 {
+  font-size: 1.7em;
+}
+
+.overlay p {
+  margin-top: 55px;
+  font-size: 25px;
+}
+
+.banner2 {
+  display: flex;
+  height: auto;
+  width: auto;
+  background-color: #446aa2;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin: 3% 0;
+  padding: 15px 0;
+  font-family: Century Gothic;
+}
+
+.banner3 {
+  display: flex; 
+  width: 100%;
+  height: auto;
+  background-color: #d5f2ac;
+  color: rgb(0, 0, 0);
+  font-family: Century Gothic;
+}
+
+.textito3 h3 {
+  font-size: 1.6em;
+  margin: 2% 5%;
+  text-align: center;
+}
+
+.textito3 p {
+  font-size: 18px;
+  margin: 3% 5%;
+  line-height: 1.8em;
+}
+
+.img3 img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.banner4 {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin: 5% 0;
+  background-color: #f5b88c;
+  color: rgb(0, 0, 0);
+  font-family: Century Gothic;
+}
+
+.img4 img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.textito4 h3 {
+  font-size: 28px;
+  margin: 3% 5%;
+  margin-left: 5%;
+  text-align: center;
+}
+
+.textito4 p {
+  font-size: 18px;
+  margin: 3% 5%;
+  line-height: 1.8em;
+}
+
+.banner5 {
+  display: flex;
+  width: 100%;
+  height: auto;
+  background-color: #f3c8e8;
+  color: rgb(0, 0, 0);
+  font-family: Century Gothic;
+}
+
+.textito5 h3 {
+  font-size: 28px;
+  margin: 3% 5%;
+  margin-left: 5%;
+  text-align: center;
+}
+
+.textito5 p {
+  font-size: 18px;
+  margin: 3% 5%;
+  line-height: 1.8em;
+}
+
+.img5 img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.banner6 {
+  display: flex;
+  width: 100%; 
+  height: auto;
+  background-color: #446aa2;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin: 3% 0;
+  padding: 20px 0;
+  font-family: Century Gothic;
+}
+
+.banner8 {
+  width: 100%;
+  height: auto;
+}
+
+.banner8 div{
+  display: flex;
+  width: 50%; 
+  height: auto;
+  background-color: #eeeebe;
+  color: rgb(0, 0, 0);
+  font-family: Century Gothic;
+ 
+}
+
+.textito8 {
+  flex-direction: column;
+}
+
+.textito8 h3 {
+  font-size: 19.4px;
+  margin: 3% 0 2% 5%;
+  text-align: left;
+}
+
+.textito8 p {
+  font-size: 16px;
+  margin: 3% 5%;
+  line-height: 1.8em;
+}
+
+.img8 img {
+  margin: auto;
+  /*height: 100%;
+  width: 100%;
+  object-fit: cover;*/
+}
+
+.banner9 {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin-top: 5%;
+  justify-content: flex-end;
+}
+
+.banner9 div{
+  display: flex;
+  width: 50%;
+  height: auto;
+  background-color: #eeeebe;
+  color: rgb(0, 0, 0);
+  font-family: Century Gothic;
+}
+
+.img9 img {
+  /*height: 100%;
+  width: 100%;*/
+  margin: auto;
+}
+
+.textito9 {
+  flex-direction: column;
+}
+
+.textito9 h3 {
+  font-size: 19.4px;
+  margin-top: 30px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.textito9 p {
+  font-size: 16px;
+  margin: 30px 30px 0 30px;
+  text-align: left;
+  line-height: 1.8em;
+}
+
+@media (max-width: 768px) {
+  .contenido {
+    flex-direction: column;
+  }
+
+  .banner3, .banner4, .banner5, .banner8, .banner9 {
+    flex-direction: column;
+  }
+
+  .textito, .img {
+    width: 100%;
+    margin: 0;
+  }
+
+  .overlay {
+    width: 90%; /* Aumenta el ancho en móviles */
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.5rem; /* Tamaño más pequeño en pantallas pequeñas */
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .banner8 div, .banner9 div{
+    width: 100%;
+  }
+
+  .banner4 .img {
+    order: 2;
+  }
+  .banner4 .textito4 {
+    order: 1;
+  }
+
+}

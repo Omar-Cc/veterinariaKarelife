@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es" layout:decorate="_layout">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="/css/estilo-contacto.css" id="estilo-navegacion">
+</head>
+
+<body>
+    <div layout:fragment="contenido" id="app">
+        <div class="main">
+            <div class="form-container">
+                <h2>RESERVA TU CITA:</h2>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <form id="appointmentForm">
+                    <label for="name">Nombre y Apellido:</label>
+                    <input type="text" id="name" name="name" required>
+                    <span class="error-message" id="name-error"></span>
+
+                    <label for="name">Servicios:</label>
+                    <select v-model="cita.servicio.id">
+                        <option value="" selected>Seleccione un servicio</option>
+                        <option v-for="servicio in servicios" v-bind:value="servicio.id">
+                            {{ servicio.nombre }}
+                        </option>
+                    </select>
+                    <label for="date">Fecha (dd/MM/yyyy):</label>
+                    <input type="text" id="date" name="date" placeholder="dd/MM/yyyy" v-model="cita.fecha_cita"
+                        required>
+                    <span class="error-message" id="date-error"></span>
+
+                    <label for="time">Hora (HH:mm):</label>
+                    <input type="text" id="time" name="time" placeholder="HH:mm" v-model="cita.hora" required>
+                    <span class="error-message" id="time-error"></span>
+
+                    <label for="phone">Teléfono:</label>
+                    <input type="text" id="phone" name="phone" v-model="cita.cliente.telefono" required>
+                    <span class="error-message" id="phone-error"></span>
+
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" v-model="cita.cliente.correo" placeholder="@example.com"
+                        required>
+                    <span class="error-message" id="email-error"></span>
+
+                    <div class="bt-img">
+                        <button type="button" @click="guardarCita">ENVIAR</button>
+                        <img src="/img/contactos/icons8-whatsapp.png">
+                    </div>
+                </form>
+                <div id="error-message"></div>
+            </div>
+        </div>
+        <div class="additional-info">
+            <div class="social-media">
+                <h3>Encuéntranos en nuestras redes sociales como:</h3>
+                <ul>
+                    <li>
+                        <a href="https://www.instagram.com/"><img src="/img/contactos/icons8-instagram.png"
+                                alt="Instagram">
+                            @KareLifeVet</a>
+                    </li>
+                    <li>
+                        <a href="https://www.tiktok.com/"><img src="/img/contactos/icons8-tik-tok.png" alt="TikTok">
+                            @KareLifeVet</a>
+                    </li>
+                    <li>
+                        <a href="https://x.com/"><img src="/img/contactos/icons8-twitterx.png" alt="YouTube">
+                            @KareLifeVet</a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/"><img src="/img/contactos/icons8-facebook.png"
+                                alt="Facebook">
+                            @KareLifeVet</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="locations">
+                <h3>Nuestros Locales:</h3>
+                <div class="location">
+                    <h4>Barranco</h4>
+                    <p>Av. República de Panamá 6584, Barranco</p>
+                    <p>Teléfonos: 01 446 6179 / 01 637 5132</p>
+                    <p>Atención: Lunes a Domingo - 24 Horas</p>
+                </div>
+                <div class="location">
+                    <h4>San Juan de Miraflores</h4>
+                    <p>Av. Pedro Miotta 620, San Juan de Miraflores</p>
+                    <p>Teléfonos: 01 656 6104 / 01 656 6491</p>
+                    <p>Atención: Lunes a Sábado - 8 a.m. - 8 p.m.</p>
+                    <p>Domingos - 9 a.m. - 6 p.m.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script layout:fragment="script">
+        new Vue({
+            el: '#app',
+            data: {
+                cita: {
+                    fecha_cita: '',
+                    hora: '',
+                    mascota: {
+                        id: 2,
+                    },
+                    servicio: {
+                        id: '',
+                        nombre: ''
+                    },
+                    cliente: {
+                        id: '',
+                        telefono: '',
+                        correo: '',
+                    }
+                },
+                servicios: []
+            },
+            methods: {
+                obtenerCliente() {
+                    const id = localStorage.getItem('id');
+                    console.log(id);
+                    if (id != null) {
+                        this.$http.get('/api/cliente/usuario/' + id)
+                            .then(response => {
+                                if (response.status === 200) {
+                                    this.cita.cliente = response.data;
+                                    console.log(this.cita.cliente);
+                                } else {
+                                    alert('Error al obtener el usuario.');
+                                }
+                            });
+                    }
+                    console.log("Error al obtener el usuario.");
+                },
+                formatearFecha(fecha) {
+                    const partes = fecha.split('/');
+                    const dia = partes[0];
+                    const mes = partes[1];
+                    const año = partes[2];
+                    return `${año}-${mes}-${dia}`;
+                },
+                guardarCita() {
+                    const fechaFormateada = this.formatearFecha(this.cita.fecha_cita);
+                    const servicioSeleccionado = this.servicios.find(servicio => servicio.id === this.cita.servicio.id);
+                    const cita = {
+                        fecha_cita: fechaFormateada,
+                        hora: this.cita.hora,
+                        mascota: {
+                            id: 2,
+                        },
+                        servicio: {
+                            id: this.cita.servicio.id,
+                            nombre: servicioSeleccionado ? servicioSeleccionado.nombre : ''
+                        },
+                        cliente: {
+                            id: this.cita.cliente.id,
+                            telefono: this.cita.cliente.telefono,
+                            correo: this.cita.cliente.correo,
+                        }
+                    };
+                    console.log(cita);
+                    this.$http.post('/api/cita', cita).then(response => {
+                        if (response.status === 200) {
+                            alert('Cita guardada correctamente.');
+                        } else {
+                            alert('Error al guardar la cita.');
+                        }
+                    });
+                },
+                listarServicios() {
+                    this.$http.get('/api/servicios/listar')
+                        .then(response => {
+                            if (response.status === 200) {
+                                this.servicios = response.data;
+                                alert('Servicios listados correctamente.');
+                            } else {
+                                alert('Error al listar los servicios.');
+                            }
+                        });
+                },
+                obtenerUsuario() {
+                    user = localStorage.getItem('user');
+                    if (user != null) {
+                        cliente.id = user.id
+                    }
+                },
+                authentication() {
+                    if (this.cliente.id != null) {
+                        console.log("hola");
+                    }
+                }
+            },
+            created() {
+                this.listarServicios();
+                this.obtenerUsuario();
+                this.obtenerCliente();
+            },
+            computed: {
+                isFormValid() {
+                    return this.fecha_cita && this.servicio && this.cliente && this.hora
+                }
+
+            }
+        });
+
+        const totalFields = 5; // Número total de campos en el formulario
+        let validFields = 0; // Contador de campos válidos
+
+        function updateProgressBar() {
+            const progressBar = document.getElementById('progress-bar');
+            const progressPercentage = (validFields / totalFields) * 100;
+            progressBar.style.width = progressPercentage + '%';
+        }
+
+        function removeValidField(input) {
+            if (input.classList.contains('valid')) {
+                validFields = Math.max(0, validFields - 1);
+                updateProgressBar();
+                input.classList.remove('valid');
+            }
+        }
+
+        // Validar nombre al salir del campo (onBlur)
+        document.getElementById('name').onblur = function () {
+            const name = this.value;
+            const nameError = document.getElementById('name-error');
+            const namePattern = /^[a-zA-ZÑñ\s]+$/;
+
+            if (!namePattern.test(name)) {
+                this.classList.add('invalid');
+                this.classList.remove('valid');
+                nameError.textContent = 'El nombre solo debe contener letras.';
+                nameError.style.display = 'block';
+            } else {
+                this.classList.add('valid');
+                this.classList.remove('invalid');
+                nameError.textContent = '';
+                nameError.style.display = 'none';
+                validFields = Math.min(totalFields, validFields + 1);
+                updateProgressBar();
+            }
+        };
+
+        // Validar fecha al salir del campo (onBlur)
+        document.getElementById('date').onblur = function () {
+            const date = this.value;
+            const dateError = document.getElementById('date-error');
+            const datePattern = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+
+            if (!datePattern.test(date)) {
+                this.classList.add('invalid');
+                this.classList.remove('valid');
+                dateError.textContent = 'La fecha debe estar en formato dd/MM/yyyy.';
+                dateError.style.display = 'block';
+            } else {
+                this.classList.add('valid');
+                this.classList.remove('invalid');
+                dateError.textContent = '';
+                dateError.style.display = 'none';
+                validFields = Math.min(totalFields, validFields + 1);
+                updateProgressBar();
+            }
+        };
+
+        // Validar hora al salir del campo (onBlur)
+        document.getElementById('time').onblur = function () {
+            const time = this.value;
+            const timeError = document.getElementById('time-error');
+            const timePattern = /^([01]\d|2[0-3]):([0-5]\d)$/;
+
+            if (!timePattern.test(time)) {
+                this.classList.add('invalid');
+                this.classList.remove('valid');
+                timeError.textContent = 'La hora debe estar en formato HH:mm.';
+                timeError.style.display = 'block';
+            } else {
+                this.classList.add('valid');
+                this.classList.remove('invalid');
+                timeError.textContent = '';
+                timeError.style.display = 'none';
+                validFields = Math.min(totalFields, validFields + 1);
+                updateProgressBar();
+            }
+        };
+
+        // Validar teléfono al salir del campo (onBlur)
+        document.getElementById('phone').onblur = function () {
+            const phone = this.value;
+            const phoneError = document.getElementById('phone-error');
+            const phonePattern = /^[0-9]{9}$/;
+
+            if (!phonePattern.test(phone)) {
+                this.classList.add('invalid');
+                this.classList.remove('valid');
+                phoneError.textContent = 'El teléfono debe tener 9 dígitos.';
+                phoneError.style.display = 'block';
+            } else {
+                this.classList.add('valid');
+                this.classList.remove('invalid');
+                phoneError.textContent = '';
+                phoneError.style.display = 'none';
+                validFields = Math.min(totalFields, validFields + 1);
+                updateProgressBar();
+            }
+        };
+
+        // Validar correo al salir del campo (onBlur)
+        document.getElementById('email').onblur = function () {
+            const email = this.value;
+            const emailError = document.getElementById('email-error');
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailPattern.test(email)) {
+                this.classList.add('invalid');
+                this.classList.remove('valid');
+                emailError.textContent = 'Por favor, introduce un correo válido.';
+                emailError.style.display = 'block';
+            } else {
+                this.classList.add('valid');
+                this.classList.remove('invalid');
+                emailError.textContent = '';
+                emailError.style.display = 'none';
+                validFields = Math.min(totalFields, validFields + 1);
+                updateProgressBar();
+            }
+        };
+
+        // Evento "focus" para reducir el progreso al volver a un campo ya validado
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.onfocus = function () {
+                removeValidField(this);
+            };
+        });
+
+        // Validación final al enviar el formulario
+        document.getElementById('appointmentForm').onsubmit = function (event) {
+            const name = document.getElementById('name').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+
+            const namePattern = /^[a-zA-Z\s]+$/;
+            const datePattern = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+            const timePattern = /^([01]\d|2[0-3]):([0-5]\d)$/;
+            const phonePattern = /^[0-9]{9}$/;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!namePattern.test(name) || !datePattern.test(date) || !timePattern.test(time) || !phonePattern.test(phone) || !emailPattern.test(email)) {
+                alert('Por favor, completa todos los campos correctamente.');
+                event.preventDefault();
+            }
+        };
+
+        const input = document.getElementById('date');
+
+        input.addEventListener('input', function (event) {
+            const value = input.value.replace(/\D/g, '');
+            let formattedValue = '';
+
+            for (let i = 0; i < value.length; i++) {
+                formattedValue += value[i];
+
+                if (i === 1 || i === 3) {
+                    formattedValue += '/';
+                }
+            }
+
+            input.value = formattedValue;
+            input.setSelectionRange(formattedValue.length, formattedValue.length);
+        });
+
+        input.addEventListener('keydown', function (event) {
+            if (event.key === 'Backspace') {
+                const value = input.value;
+                if (value.endsWith('/')) {
+                    input.value = value.slice(0, -1);
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

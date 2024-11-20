@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es" layout:decorate="_layout">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Carrito de Compras</title>
+	<link rel="stylesheet" href="/css/carrito.css">
+</head>
+
+<body>
+	<div layout:fragment="contenido" id="app">
+		<div class="barra">
+			<h2>Compras</h2>
+			<button><i class="fa-solid fa-cart-shopping carrito"></i></button>
+		</div>
+		<main>
+			<div class="tabla">
+				<header>
+					<h3>Carrito de compras</h3>
+				</header>
+				<table class="carrito-tabla">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Imagen</th>
+							<th>Producto</th>
+							<th>Descripción</th>
+							<th>Cantidad</th>
+							<th>Precio</th>
+							<th>SubTotal</th>
+						</tr>
+					</thead>
+					<tbody id="carrito"></tbody>
+				</table>
+			</div>
+			<div class="total">
+				<p id="total">Total: S/. 0</p>
+				<a href="productos.html" class="seguir-comprando">Seguir comprando</a>
+				<button class="btn-comprar" id="open-popup">Comprar</button>
+			</div>
+		</main>
+
+		<div id="popup" class="popup">
+			<div class="popup-content">
+				<span class="close" id="close-popup">&times;</span>
+				<form id="appointmentForm">
+					<label for="name">Nombre de la persona que va recoger:</label>
+					<input type="text" id="name" name="name" required>
+					<span class="error-message" id="name-error"></span>
+
+					<label for="email">Correo Electrónico:</label>
+					<input type="email" id="email" name="email" placeholder="@example.com" required>
+					<span class="error-message" id="email-error"></span>
+
+					<label for="number">Numero de la tarjeta:</label>
+					<input type="text" id="number" name="number" required>
+					<span class="error-message" id="number-error"></span>
+
+					<label for="name-prop">Nombre impreso de la tarjeta:</label>
+					<input type="text" id="name-prop" name="name-prop" required>
+					<span class="error-message" id="name-prop-error"></span>
+
+					<label for="date">Fecha de expiracion de la tarjeta:</label>
+					<input type="text" id="date" name="date" placeholder="MM/yy" required>
+					<span class="error-message" id="date-error"></span>
+
+					<label for="cvv">CVV:</label>
+					<input type="text" id="cvv" name="cvv" required>
+					<span class="error-message" id="cvv-error"></span>
+
+					<div class="total-pagar">
+						<p id="total-pagar">Total: S/. 0</p>
+					</div>
+
+					<div class="pagar">
+						<button id="payButton" type="button">PAGAR</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="overlay" id="overlay"></div>
+		<div class="popup2" id="popup2">
+			<h2><i class="fa-solid fa-circle-check"></i></h2>
+			<p>La compra se realizó con éxito.</p>
+			<button id="acceptButton">Aceptar</button>
+		</div>
+	</div>
+	<script src="js/script.js"></script>
+	<script layout:fragment="script">
+		document.getElementById('open-popup').onclick = function () {
+			document.getElementById('popup').style.display = 'flex';
+		}
+
+		document.getElementById('close-popup').onclick = function () {
+			document.getElementById('popup').style.display = 'none';
+		}
+
+		window.onclick = function (event) {
+			const popup = document.getElementById('popup');
+			if (event.target == popup) {
+				popup.style.display = 'none';
+			}
+		}
+
+		document.getElementById('payButton').onclick = function () {
+			document.getElementById('overlay').style.display = 'flex';
+			document.getElementById('popup2').style.display = 'flex';
+		};
+
+		document.getElementById('acceptButton').onclick = function () {
+			document.getElementById('overlay').style.display = 'none';
+			document.getElementById('popup2').style.display = 'none';
+		};
+	</script>
+</body>
+
+</html>

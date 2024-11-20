@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/estilo-header.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <img src="/img/fondo-header.png" alt="Fondo Header" class="fondo-header">
+            <!-- Aqui se puede colocar los botones de inicio de sesion -->
+        </header>
+        <div class="banner">
+            <nav>
+                <ul>
+                    <li><a href="/nosotros" aria-label="Nosotros">NOSOTROS</a></li>
+                    <li><a href="/blog" aria-label="Blog">BLOG</a></li>
+                    <li><a href="/servicios" aria-label="Servicios">SERVICIOS</a></li>
+                    <li><a href="/" aria-label="Home"><img src="/img/logo-Karelife.png" alt="Karelife Logo"
+                                class="logo"></a></li>
+                    <li><a href="/productos" aria-label="Productos">PRODUCTOS</a></li>
+                    <li><a href="/manual" aria-label="Manual">MANUAL</a></li>
+                    <li><a href="/contacto" aria-label="Contactos">CONTACTOS</a></li>
+                </ul>
+            </nav>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.6.1/vue-resource.min.js" integrity="sha512-NuUIe6TWdEivPTcxnihx2e6r2xQFEFPrJfpdZWoBwZF6G51Rphcf5r/1ZU/ytj4lyHwLd/YGMix4a5LqAN15XA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        
+        
+        <div layout:fragment="contenido">
+            <!-- Aquí se incluirá el contenido de las páginas -->
+        </div>
+    </div>
+    <script layout:fragment="script">
+        // Aquí se incluirán los scripts de las páginas
+    </script>
+</body>
+
+</html>

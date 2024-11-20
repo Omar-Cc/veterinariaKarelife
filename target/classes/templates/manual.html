@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es" layout:decorate="_layout">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Manual</title>
+	<link rel="stylesheet" href="css/estilo-manual.css" id="estilo-navegacion" />
+</head>
+
+<body>
+	<div layout:fragment="contenido" id="app">
+		<div class="container">
+			<div class="animal-card">
+				<img src="/img/manual/gato.png" alt="Gato" class="animal-img" onclick="mostrarModal('modalGato')">
+				<p>Gato</p>
+			</div>
+
+			<div class="animal-card">
+				<img src="/img/manual/perro.png" alt="Perro" class="animal-img" onclick="mostrarModal('modalPerro')">
+				<p>Perro</p>
+			</div>
+
+			<div class="animal-card">
+				<img src="/img/manual/conejo.png" alt="Conejo" class="animal-img" onclick="mostrarModal('modalConejo')">
+				<p>Conejo</p>
+			</div>
+
+			<div class="animal-card">
+				<img src="/img/manual/loro.png" alt="Loro" class="animal-img" onclick="mostrarModal('modalLoro')">
+				<p>Loro</p>
+			</div>
+
+			<div class="animal-card">
+				<img src="/img/manual/pez.png" alt="Pez" class="animal-img" onclick="mostrarModal('modalPez')">
+				<p>Pez</p>
+			</div>
+
+			<div class="animal-card">
+				<img src="/img/manual/tortuga.png" alt="Tortuga" class="animal-img"
+					onclick="mostrarModal('modalTortuga')">
+				<p>Tortuga</p>
+			</div>
+
+			<div class="animal-card">
+				<img src="/img/manual/lagartija.png" alt="Lagartija" class="animal-img"
+					onclick="mostrarModal('modalLagartija')">
+				<p>Lagartija</p>
+			</div>
+
+			<div class="animal-card">
+				<img src="/img/manual/hamster.png" alt="Hamster" class="animal-img"
+					onclick="mostrarModal('modalHamster')">
+				<p>Hamster</p>
+			</div>
+
+			<div class="animal-card">
+				<img src="/img/manual/caballo.png" alt="Caballo" class="animal-img"
+					onclick="mostrarModal('modalCaballo')">
+				<p>Caballo</p>
+			</div>
+
+			<div class="animal-card">
+				<img src="/img/manual/erizo.png" alt="Erizo" class="animal-img" onclick="mostrarModal('modalErizo')">
+				<p>Erizo</p>
+			</div>
+		</div>
+
+
+		<div id="modalGato" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="cerrarModal('modalGato')">&times;</span>
+				<h2>Gato</h2>
+				<p><strong>Especie:</strong> Felis catus</p>
+				<p><strong>Cuidados:</strong> Cuidado del pelaje, limpieza de orejas y corte de uñas.</p>
+				<p><strong>Alimentación:</strong> Alimentos ricos en proteínas de calidad, preferiblemente alimentos
+					húmedos
+					o croquetas especiales para gatos.</p>
+				<p><strong>Vacunas:</strong> Vacunas felinas básicas: Rabia, leucemia felina, etc.</p>
+				<p><strong>Recomendaciones de salud:</strong> Revisiones anuales y controles de parásitos.</p>
+				<button onclick="cerrarModal('modalGato')">Aceptar</button>
+			</div>
+		</div>
+
+		<div id="modalPerro" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="cerrarModal('modalPerro')">&times;</span>
+				<h2>Perro</h2>
+				<p><strong>Especie:</strong> Canis lupus familiaris</p>
+				<p><strong>Cuidados:</strong> Ejercicio diario, cepillado regular del pelaje, corte de uñas, limpieza
+					dental, y mucho amor y atención.</p>
+				<p><strong>Alimentación:</strong> Dieta balanceada específica para perros, con proteínas de alta
+					calidad,
+					carbohidratos, grasas, vitaminas y minerales.</p>
+				<p><strong>Vacunas:</strong> Rabia, Moquillo, Parvovirus, Hepatitis canina, Leptospirosis, Tos de las
+					perreras.</p>
+				<p><strong>Recomendaciones de salud:</strong> Revisiones veterinarias anuales, control de parásitos
+					internos
+					y externos.</p>
+				<button onclick="cerrarModal('modalPerro')">Aceptar</button>
+			</div>
+		</div>
+
+
+		<div id="modalConejo" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="cerrarModal('modalConejo')">&times;</span>
+				<h2>Conejo</h2>
+				<p><strong>Especie:</strong> Oryctolagus cuniculus</p>
+				<p><strong>Cuidados:</strong> Limpieza regular de la jaula, suministro constante de heno fresco, corte
+					de
+					uñas, control de la salud dental, interacción social.</p>
+				<p><strong>Alimentación:</strong> Heno de hierba, pequeñas cantidades de verduras de hoja verde, frutas
+					ocasionalmente, pellets de conejo de alta calidad.</p>
+				<p><strong>Vacunas:</strong> Mixomatosis, enfermedad hemorrágica vírica (RVH).</p>
+				<p><strong>Recomendaciones de salud:</strong> Evitar corrientes de aire, proporcionar un lugar oscuro y
+					tranquilo para descansar, evitar el sobrepeso.</p>
+				<button onclick="cerrarModal('modalConejo')">Aceptar</button>
+			</div>
+		</div>
+
+		<div id="modalLoro" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="cerrarModal('modalLoro')">&times;</span>
+				<h2>Loro</h2>
+				<p><strong>Especie:</strong> Psittaciformes</p>
+				<p><strong>Cuidados:</strong> Limpieza de jaula, corte de uñas y revisión del pico.</p>
+				<p><strong>Alimentación:</strong> Mezcla de semillas, frutas, verduras, pellets de loro, agua fresca.
+				</p>
+				<p><strong>Vacunas:</strong> Psitacosis, otras enfermedades pueden variar según la especie y región.</p>
+				<p><strong>Recomendaciones de salud:</strong> Ambiente enriquecido, control de la humedad, visitas
+					regulares
+					al veterinario aviar.</p>
+				<button onclick="cerrarModal('modalLoro')">Aceptar</button>
+			</div>
+		</div>
+
+		<div id="modalPez" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="cerrarModal('modalPez')">&times;</span>
+				<h2>Pez</h2>
+				<p><strong>Especie:</strong> Carassius auratus</p>
+				<p><strong>Cuidados:</strong> Mantenimiento del acuario limpio, filtración adecuada, control de la
+					temperatura y calidad del agua.</p>
+				<p><strong>Alimentación:</strong> Pienso para peces, alimentos vivos (opcional), variar la dieta.</p>
+				<p><strong>Vacunas:</strong> Generalmente no se vacunan, prevención a través de la higiene del acuario.
+				</p>
+				<p><strong>Recomendaciones de salud:</strong> Observar el comportamiento de los peces, cuarentena para
+					peces
+					nuevos.</p>
+				<button onclick="cerrarModal('modalPez')">Aceptar</button>
+			</div>
+		</div>
+
+		<div id="modalTortuga" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="cerrarModal('modalTortuga')">&times;</span>
+				<h2>Tortuga</h2>
+				<p><strong>Especie:</strong> Testudines</p>
+				<p><strong>Cuidados:</strong> Acuario o terrario adecuado, iluminación UVB, alimentación variada,
+					control de
+					la temperatura y humedad.</p>
+				<p><strong>Alimentación:</strong> Vegetales, frutas, insectos (varía según la especie).</p>
+				<p><strong>Vacunas:</strong> No existen vacunas específicas para la mayoría de las tortugas.</p>
+				<p><strong>Recomendaciones de salud:</strong> Control regular de la temperatura y humedad, proporcionar
+					escondites, visitas al veterinario especializado.</p>
+				<button onclick="cerrarModal('modalTortuga')">Aceptar</button>
+			</div>
+		</div>
+
+		<div id="modalLagartija" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="cerrarModal('modalLagartija')">&times;</span>
+				<h2>Lagartija</h2>
+				<p><strong>Especie:</strong> Varía según la especie (ej: camaleón, iguana, gecko)</p>
+				<p><strong>Cuidados:</strong> Terrario con temperatura y humedad adecuadas, iluminación UVB,
+					alimentación
+					variada, manipulación cuidadosa.</p>
+				<p><strong>Alimentación:</strong> Insectos, frutas y verduras (varía según la especie).</p>
+				<p><strong>Vacunas:</strong> No existen vacunas específicas para la mayoría de las lagartijas.</p>
+				<p><strong>Recomendaciones de salud:</strong> Control regular de la temperatura y humedad, proporcionar
+					escondites, visitas al veterinario especializado.</p>
+				<button onclick="cerrarModal('modalLagartija')">Aceptar</button>
+			</div>
+		</div>
+
+		<div id="modalHamster" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="cerrarModal('modalHamster')">&times;</span>
+				<h2>Hamster</h2>
+				<p><strong>Especie:</strong> Varias especies (ej: sirio, ruso, chino)</p>
+				<p><strong>Cuidados:</strong> Limpieza diaria de la jaula, suministro de una rueda de ejercicio,
+					manipulación suave, evitar el estrés.</p>
+				<p><strong>Alimentación:</strong> Mezcla de semillas, frutas y verduras, pellets de hamster.</p>
+				<p><strong>Vacunas:</strong>No existen vacunas específicas para hamsters domésticos.</p>
+				<p><strong>Recomendaciones de salud:</strong> Evitar el sobrepeso, proporcionar un ambiente seguro y
+					enriquecido.</p>
+				<button onclick="cerrarModal('modalHamster')">Aceptar</button>
+			</div>
+		</div>
+
+		<div id="modalCaballo" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="cerrarModal('modalCaballo')">&times;</span>
+				<h2>Caballo</h2>
+				<p><strong>Especie:</strong> Equus caballus</p>
+				<p><strong>Cuidados:</strong> Cepillado diario, limpieza de cascos, ejercicio regular, herraje
+					periódico,
+					cuidados dentales.</p>
+				<p><strong>Alimentación:</strong> Heno de buena calidad, granos, suplementos vitamínicos y minerales,
+					acceso
+					constante a agua fresca.</p>
+				<p><strong>Vacunas:</strong> Tétano, encefalomielitis equina, influenza equina, herpesvirus equino,
+					rabia
+					(según región).</p>
+				<p><strong>Recomendaciones de salud:</strong> Desparasitación regular, revisión veterinaria anual,
+					cuidado
+					de los pies, protección contra insectos.</p>
+				<button onclick="cerrarModal('modalCaballo')">Aceptar</button>
+			</div>
+		</div>
+
+		<div id="modalErizo" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="cerrarModal('modalErizo')">&times;</span>
+				<h2>Erizo</h2>
+				<p><strong>Especie:</strong> Atelerix albiventris</p>
+				<p><strong>Cuidados:</strong>Limpieza regular de la jaula, suministro de una rueda de ejercicio,
+					manipulación suave y regular, control de la temperatura.</p>
+				<p><strong>Alimentación:</strong> Pienso específico para erizos, insectos, frutas y verduras
+					ocasionalmente.
+				</p>
+				<p><strong>Vacunas:</strong>No existen vacunas específicas para erizos domésticos.</p>
+				<p><strong>Recomendaciones de salud:</strong>Control regular de peso, evitar el estrés, proporcionar un
+					ambiente enriquecido.</p>
+				<button onclick="cerrarModal('modalErizo')">Aceptar</button>
+			</div>
+		</div>
+	</div>
+
+	<script layout:fragment="script">
+		function mostrarModal(modalId) {
+			document.getElementById(modalId).style.display = 'block';
+		}
+		function cerrarModal(modalId) {
+			document.getElementById(modalId).style.display = 'none';
+		}
+	</script>
+</body>
+
+</html>

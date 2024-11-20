@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es" layout:decorate="_layout">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Productos</title>
+	<link rel="stylesheet" href="/css/estilo-productos.css" id="estilo-navegacion" />
+
+</head>
+
+<body>
+	<div layout:fragment="contenido" id="app">
+		<div class="gato">
+			<img src="img/productos/Cat1.jpg" alt="">
+			<h2 class="etiqueta1">GATO</h2>
+		</div>
+
+		<div class="perro">
+			<img src="img/productos/Dog1.jpg" alt="">
+			<h2 class="etiqueta2">PERRO</h2>
+		</div>
+
+		<div class="galeria">
+			<img src="img/productos/pWhiskas.png" alt="">
+			<img src="img/productos/pRicocat.jpg" alt="">
+			<img src="img/productos/monge.png" alt="">
+			<img src="img/productos/ultima.png" alt="">
+			<img src="img/productos/RicocatLata.jpg" alt="">
+			<img src="img/productos/Salmon.png" alt="">
+			<img src="img/productos/DogShow.png" alt="">
+			<img src="img/productos/Franzo.png" alt="">
+		</div>
+
+		<div>
+
+			<main>
+				<div class="barra">
+					<h2>ALIMENTACION</h2>
+					<a href="carrito.html"><i class="fa-solid fa-cart-shopping carrito"></i></a>
+				</div>
+				<div class="productos">
+					<div class="producto">
+						<img src="img/productos/pWhiskas.png" alt="Producto 1" class="imagen-producto">
+						<h2>Whiskas</h2>
+						<p>Descripción del producto 1</p>
+						<span>Precio: S/. 10</span>
+						<input type="number" id="cantidad-producto1" min="1" value="1">
+						<button class="btn-comprar"
+							onclick="agregarAlCarrito('Whiskas', 10, 'Descripción del producto 1', 'img/productos/pWhiskas.png', document.getElementById('cantidad-producto1').value)">Agregar
+							al carrito</button>
+					</div>
+					<div class="producto">
+						<img src="img/productos/pRicocat.jpg" alt="Producto 2" class="imagen-producto">
+						<h2>Ricocat</h2>
+						<p>Descripción del producto 2</p>
+						<span>Precio: S/. 12</span>
+						<input type="number" id="cantidad-producto2" min="1" value="1">
+						<button class="btn-comprar"
+							onclick="agregarAlCarrito('Ricocat', 12, 'Descripción del producto 2', 'img/productos/pRicocat.jpg', document.getElementById('cantidad-producto2').value)">Agregar
+							al carrito</button>
+					</div>
+					<div class="producto">
+						<img src="img/productos/monge.png" alt="Producto 3" class="imagen-producto">
+						<h2>Monge</h2>
+						<p>Descripción del producto 3</p>
+						<span>Precio: S/. 15</span>
+						<input type="number" id="cantidad-producto3" min="1" value="1">
+						<button class="btn-comprar"
+							onclick="agregarAlCarrito('Monge', 15, 'Descripción del producto 3', 'img/productos/monge.png', document.getElementById('cantidad-producto3').value)">Agregar
+							al carrito</button>
+					</div>
+					<div class="producto">
+						<img src="img/productos/ultima.png" alt="Producto 4" class="imagen-producto">
+						<h2>Ultima</h2>
+						<p>Descripción del producto 4</p>
+						<span>Precio: S/. 20</span>
+						<input type="number" id="cantidad-producto4" min="1" value="1">
+						<button class="btn-comprar"
+							onclick="agregarAlCarrito('Ultima', 20, 'Descripción del producto 4', 'img/productos/ultima.png', document.getElementById('cantidad-producto4').value)">Agregar
+							al carrito</button>
+					</div>
+					<div class="producto">
+						<img src="img/productos/RicocatLata.jpg" alt="Producto 5" class="imagen-producto">
+						<h2>Ricocat Lata</h2>
+						<p>Descripción del producto 5</p>
+						<span>Precio: S/. 8</span>
+						<input type="number" id="cantidad-producto5" min="1" value="1">
+						<button class="btn-comprar"
+							onclick="agregarAlCarrito('Ricocat Lata', 8, 'Descripción del producto 5', 'img/productos/RicocatLata.jpg', document.getElementById('cantidad-producto5').value)">Agregar
+							al carrito</button>
+					</div>
+					<div class="producto">
+						<img src="img/productos/Salmon.png" alt="Producto 6" class="imagen-producto">
+						<h2>Salmon</h2>
+						<p>Descripción del producto 6</p>
+						<span>Precio: S/. 18</span>
+						<input type="number" id="cantidad-producto6" min="1" value="1">
+						<button class="btn-comprar"
+							onclick="agregarAlCarrito('Salmon', 18, 'Descripción del producto 6', 'img/productos/Salmon.png', document.getElementById('cantidad-producto6').value)">Agregar
+							al carrito</button>
+					</div>
+					<div class="producto">
+						<img src="img/productos/DogShow.png" alt="Producto 7" class="imagen-producto">
+						<h2>Dog Show</h2>
+						<p>Descripción del producto 7</p>
+						<span>Precio: S/. 14</span>
+						<input type="number" id="cantidad-producto7" min="1" value="1">
+						<button class="btn-comprar"
+							onclick="agregarAlCarrito('Dog Show', 14, 'Descripción del producto 7', 'img/productos/DogShow.png', document.getElementById('cantidad-producto7').value)">Agregar
+							al carrito</button>
+					</div>
+					<div class="producto">
+						<img src="img/productos/Franzo.png" alt="Producto 8" class="imagen-producto">
+						<h2>Franzo</h2>
+						<p>Descripción del producto 8</p>
+						<span>Precio: S/. 16</span>
+						<input type="number" id="cantidad-producto8" min="1" value="1">
+						<button class="btn-comprar"
+							onclick="agregarAlCarrito('Franzo', 16, 'Descripción del producto 8', 'img/productos/Franzo.png', document.getElementById('cantidad-producto8').value)">Agregar
+							al carrito</button>
+					</div>
+				</div>
+				<!--<a href="carrito.html">Ver carrito</a>-->
+			</main>
+		</div>
+
+
+		<footer>
+			<div class="container">
+				<p>&copy; Karelife 2024</p>
+			</div>
+		</footer>
+	</div>
+	<script src="/js/script.js" layout:fragment="script">
+
+	</script>
+
+
+</body>
+
+</html>
