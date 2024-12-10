@@ -37,7 +37,7 @@ public class CitaApi {
             return new ResponseEntity<>(citas, HttpStatus.OK);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        } catch (Exception e) {
+        } catch (NoSuchFieldException | SQLException e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -47,7 +47,7 @@ public class CitaApi {
         try {
             Cita _entidad = facade.crear(entidad, TipoClase.CITA);
             return new ResponseEntity<>(_entidad, HttpStatus.CREATED);
-        } catch (Exception e) {
+        } catch (NoSuchFieldException | SQLException e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -62,9 +62,7 @@ public class CitaApi {
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
-        } catch (SQLException ex) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        } catch (Exception e) {
+        } catch (SQLException | NoSuchFieldException ex) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -74,7 +72,7 @@ public class CitaApi {
         try {
             facade.cambiarEstado(id, estado, TipoClase.CITA);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } catch (Exception e) {
+        } catch (NoSuchFieldException | SQLException e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

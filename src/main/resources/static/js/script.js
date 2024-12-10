@@ -1,5 +1,5 @@
-
 let carrito = JSON.parse(localStorage.getItem('carrito')) || {};
+console.log('Carrito cargado del localStorage:', carrito);
 let total = calcularTotal();
 
 function agregarAlCarrito(nombre, precio, descripcion, imagen, cantidad) {
@@ -11,6 +11,7 @@ function agregarAlCarrito(nombre, precio, descripcion, imagen, cantidad) {
         carrito[nombre] = { precio, descripcion, imagen, cantidad };
     }
     localStorage.setItem('carrito', JSON.stringify(carrito));
+    console.log('Producto agregado:', carrito);
 }
 
 function calcularTotal() {
@@ -18,7 +19,12 @@ function calcularTotal() {
 }
 
 function mostrarCarrito() {
+    console.log('Mostrando carrito');
     const carritoLista = document.getElementById('carrito');
+    if (!carritoLista) {
+        console.error('Elemento con ID "carrito" no encontrado');
+        return;
+    }
     carritoLista.innerHTML = '';
 
     for (const [nombre, info] of Object.entries(carrito)) {
@@ -38,34 +44,20 @@ function mostrarCarrito() {
 
     total = calcularTotal();
     document.getElementById('total').textContent = `Total: S/. ${total}`;
+    console.log('Carrito mostrado:', carrito);
 }
 
 function eliminarDelCarrito(nombre) {
     delete carrito[nombre];
     localStorage.setItem('carrito', JSON.stringify(carrito));
     mostrarCarrito();
+    console.log('Producto eliminado:', carrito);
 }
 
 // Solo llamar a mostrarCarrito en la página del carrito
-if (window.location.pathname.includes('carrito.html')) {
-    mostrarCarrito();
-}
-
-
-
-
-
-// {
-//     Ricocat {
-//         "precio": 12,
-//         "descripcion": "", 
-//         "imagen": ruta de acceso a la imagen, 
-//         "cantidad": 12
-//     }
-//     Salmon{
-//         "precio": 12,
-//         "descripcion": "", 
-//         "imagen": ruta de acceso a la imagen, 
-//         "cantidad": 7
-//     }
-// }
+window.addEventListener('DOMContentLoaded', (event) => {
+    // Solo mostrar el carrito en la página de carrito
+    if (window.location.pathname.includes('/carrito')) {
+        mostrarCarrito();
+    }
+});

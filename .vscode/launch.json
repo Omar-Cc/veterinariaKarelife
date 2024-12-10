@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-VeterinariakarelifeApplication<veterinariakarelife>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.veterinaria.veterinariakarelife.VeterinariakarelifeApplication",
+            "projectName": "veterinariakarelife",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

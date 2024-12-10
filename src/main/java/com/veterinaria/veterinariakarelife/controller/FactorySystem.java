@@ -25,7 +25,7 @@ public class FactorySystem {
             case ESTADO:
             //    return new ControladorEstado();
             //case ESTADOCATEGORIA:
-                return new ControladorAdopcion();
+            //    return new ControladorAdopcion();
             case MASCOTA:
                 return new ControladorMascota();
             case PEDIDO:

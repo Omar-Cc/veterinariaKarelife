@@ -129,7 +129,7 @@
                                     this.cita.cliente = response.data;
                                     console.log(this.cita.cliente);
                                 } else {
-                                    alert('Error al obtener el usuario.');
+                                    console.log('Error al obtener el usuario.');
                                 }
                             });
                     }
@@ -163,10 +163,9 @@
                     };
                     console.log(cita);
                     this.$http.post('/api/cita', cita).then(response => {
-                        if (response.status === 200) {
+                        if (response.status === 201) {
                             alert('Cita guardada correctamente.');
                         } else {
-                            alert('Error al guardar la cita.');
                         }
                     });
                 },
@@ -175,9 +174,8 @@
                         .then(response => {
                             if (response.status === 200) {
                                 this.servicios = response.data;
-                                alert('Servicios listados correctamente.');
                             } else {
-                                alert('Error al listar los servicios.');
+                                console.log('Error al listar los servicios.');
                             }
                         });
                 },

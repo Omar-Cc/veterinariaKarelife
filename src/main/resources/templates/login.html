@@ -49,7 +49,6 @@
 						.then(response => {
 							if (response.ok) {
 								const id = response.data.id;
-								console.log(id);
 								localStorage.setItem('id', id);
 								alert('¡Inicio de sesión exitoso!');
 								window.location.href = '/';
